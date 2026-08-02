@@ -12,6 +12,7 @@ from shared.constants import (
 
 from ui.components.top_bar import TopBar
 from ui.components.chat_area import ChatArea
+from ui.components.message_input import MessageInput
 
 
 class MainWindow(QMainWindow):
@@ -37,6 +38,10 @@ class MainWindow(QMainWindow):
         self.chat_area = ChatArea()
 
         main_layout.addWidget(self.chat_area)
+
+        self.message_input = MessageInput()
+
+        main_layout.addWidget(self.message_input)
 
         # Remove extra spacing
         main_layout.setContentsMargins(0, 0, 0, 0)
