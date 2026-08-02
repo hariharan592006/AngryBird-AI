@@ -1,12 +1,17 @@
-from PyQt6.QtWidgets import QMainWindow, QLabel
-from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import (
+    QMainWindow,
+    QWidget,
+    QVBoxLayout,
+)
 
-from shared.version import APP_NAME, FULL_VERSION
+from shared.version import APP_NAME
 from shared.constants import (
     WINDOW_WIDTH,
     WINDOW_HEIGHT,
-    STATUS_READY,
 )
+
+from ui.components.top_bar import TopBar
+from ui.components.chat_area import ChatArea
 
 
 class MainWindow(QMainWindow):
@@ -15,19 +20,28 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.setWindowTitle(APP_NAME)
-
         self.resize(WINDOW_WIDTH, WINDOW_HEIGHT)
 
-        label = QLabel(
-            f"""
-🐦 {APP_NAME}
+        self.build_ui()
 
-Version : {FULL_VERSION}
+    def build_ui(self):
 
-Status : {STATUS_READY}
-"""
-        )
+        central_widget = QWidget()
 
-        label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        main_layout = QVBoxLayout()
 
-        self.setCentralWidget(label)
+        # Top Bar
+        self.top_bar = TopBar()
+        main_layout.addWidget(self.top_bar)
+
+        self.chat_area = ChatArea()
+
+        main_layout.addWidget(self.chat_area)
+
+        # Remove extra spacing
+        main_layout.setContentsMargins(0, 0, 0, 0)
+        main_layout.setSpacing(0)
+
+        central_widget.setLayout(main_layout)
+
+        self.setCentralWidget(central_widget)

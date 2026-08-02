@@ -13,6 +13,8 @@ from pathlib import Path
 PROJECT_STRUCTURE = [
     # Application
     "app",
+    # UI Components
+    "ui/components",
 
     # Core Modules
     "core",
@@ -95,9 +97,16 @@ FILES = [
     "app/bootstrap.py",
     "app/constants.py",
 
+
     # UI
     "ui/main_window.py",
     "ui/splash_screen.py",
+    # UI Components
+    "ui/components/top_bar.py",
+    "ui/components/chat_area.py",
+    "ui/components/message_bubble.py",
+    "ui/components/message_input.py",
+    "ui/components/status_bar.py",
 
     # Logger
     "core/logger/logger.py",
