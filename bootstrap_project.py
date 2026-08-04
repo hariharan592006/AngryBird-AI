@@ -28,6 +28,7 @@ PROJECT_STRUCTURE = [
     "core/sync",
     "core/logger",
     "core/config",
+    "core/ai",
 
     # Shared
     "shared",
@@ -113,6 +114,15 @@ FILES = [
 
     # Configuration
     "core/config/config_manager.py",
+
+    "core/ai/__init__.py",
+    "core/ai/ai_service.py",
+    "core/personality/__init__.py",
+    "core/personality/personality.py",
+
+        # Data
+    "data/database/memory_db.py",
+    "data/database/memory.json",
 
     # Shared
     "shared/version.py",
