@@ -13,6 +13,7 @@ from core.brain.router import AIRouter
 
 from core.context.context_engine import ContextEngine
 from core.command_interpreter.command_interpreter import CommandInterpreter
+from core.tools.tool_manager import ToolManager
 
 
 class AIService:
@@ -40,6 +41,8 @@ class AIService:
 
         # Command Engine
         self.command_interpreter = CommandInterpreter()
+
+        self.tool_manager = ToolManager()
 
     def ask(self, prompt: str):
 
@@ -85,11 +88,11 @@ class AIService:
         # =====================================================
         elif route == "TOOL":
 
-            reply = "Tool execution is not implemented yet."
+            reply = self.tool_manager.execute(prompt)
 
-            self.memory.add_ai_message(reply)
+            self.memory.add_ai_message(str(reply))
 
-            return reply
+            return str(reply)
 
         # =====================================================
         # NORMAL AI CHAT

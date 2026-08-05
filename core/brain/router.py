@@ -1,30 +1,73 @@
+import re
+
+
 class AIRouter:
 
     def route(self, prompt: str):
 
         prompt = prompt.lower()
 
-        # ===== MEMORY =====
+        # ========================
+        # MEMORY
+        # ========================
+
         if any(x in prompt for x in [
             "my name",
             "where do i study",
-            "what is my favourite",
-            "what's my",
-            "who am i"
+            "who am i",
+            "my favourite"
         ]):
             return "MEMORY"
 
-        # ===== COMMAND =====
-        if prompt.startswith("open ") or prompt.startswith("launch "):
+        # ========================
+        # COMMAND
+        # ========================
+
+        if prompt.startswith("open "):
             return "COMMAND"
 
-        # ===== TOOL =====
+        # ========================
+        # TOOL
+        # ========================
+
+        if re.search(r"\d+\s*[\+\-\*/%]\s*\d+", prompt):
+            return "TOOL"
+
         if any(x in prompt for x in [
+
             "calculate",
-            "solve",
-            "convert"
+
+            "time",
+
+            "date",
+
+            "today",
+
+            "random",
+
+            "password",
+
+            "convert",
+
+            "km",
+
+            "kg",
+
+            "cm",
+
+            "hours",
+
+            "minutes",
+
+            "seconds",
+
+            "miles"
+
         ]):
             return "TOOL"
 
-        # ===== AI =====
+        # ========================
+        # AI
+        # ========================
+
         return "AI"

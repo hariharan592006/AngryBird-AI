@@ -11,74 +11,94 @@ from pathlib import Path
 # Folder Structure
 # -----------------------------
 PROJECT_STRUCTURE = [
-    # Application
-    "app",
-    # UI Components
-    "ui/components",
 
-    # Core Modules
+    # ===========================
+    # Application
+    # ===========================
+    "app",
+
+    # ===========================
+    # Core
+    # ===========================
     "core",
+
+    "core/ai",
     "core/brain",
-    "core/planner",
     "core/context",
     "core/personality",
     "core/memory",
+    "core/automation",
     "core/command_interpreter",
-    "core/security",
-    "core/sync",
+    "core/tools",
+    "core/web",
+    "core/weather",
+    "core/files",
     "core/logger",
+    "core/security",
+    "core/planner",
     "core/config",
-    "core/ai",
+    "core/sync",
 
+    # ===========================
+    # UI
+    # ===========================
+    "ui",
+    "ui/components",
+
+    # ===========================
     # Shared
+    # ===========================
     "shared",
 
-    # AI
-    "ai",
+    # ===========================
+    # AI Models
+    # ===========================
+    "models",
 
-    # Skills
-    "skills",
-
-    # Automation
-    "automation",
-
-    # Mobile
-    "mobile",
-
-    # User Interface
-    "ui",
-
+    # ===========================
     # Data
+    # ===========================
     "data",
     "data/database",
-    "data/knowledge",
     "data/cache",
+    "data/knowledge",
 
-    # Config
-    "config",
-
+    # ===========================
     # Assets
+    # ===========================
     "assets",
 
+    # ===========================
     # Resources
+    # ===========================
     "resources",
     "resources/icons",
     "resources/themes",
     "resources/fonts",
 
-    # Documentation
+    # ===========================
+    # Config
+    # ===========================
+    "config",
+
+    # ===========================
+    # Docs
+    # ===========================
     "docs",
 
+    # ===========================
     # Tests
+    # ===========================
     "tests",
 
+    # ===========================
     # Scripts
+    # ===========================
     "scripts",
 
-    # Models
-    "models",
-
+    # ===========================
     # Logs
+    # ===========================
     "logs",
 ]
 
@@ -87,57 +107,165 @@ PROJECT_STRUCTURE = [
 # -----------------------------
 FILES = [
 
+    # ==================================================
     # Root
+    # ==================================================
     "main.py",
     ".env",
     ".gitignore",
     "README.md",
 
+    # ==================================================
     # App
+    # ==================================================
     "app/application.py",
     "app/bootstrap.py",
     "app/constants.py",
 
-
-    # UI
-    "ui/main_window.py",
-    "ui/splash_screen.py",
-    # UI Components
-    "ui/components/top_bar.py",
-    "ui/components/chat_area.py",
-    "ui/components/message_bubble.py",
-    "ui/components/message_input.py",
-    "ui/components/status_bar.py",
-
-    # Logger
-    "core/logger/logger.py",
-
-    # Configuration
-    "core/config/config_manager.py",
-
+    # ==================================================
+    # AI
+    # ==================================================
     "core/ai/__init__.py",
     "core/ai/ai_service.py",
+
+    # ==================================================
+    # Brain
+    # ==================================================
+    "core/brain/__init__.py",
+    "core/brain/router.py",
+    "core/brain/prompt_builder.py",
+
+    # ==================================================
+    # Memory
+    # ==================================================
+    "core/memory/__init__.py",
+    "core/memory/conversation.py",
+    "core/memory/memory_manager.py",
+    "core/memory/memory_db.py",
+    "core/memory/memory_extractor.py",
+    "core/memory/memory_search.py",
+    "core/memory/memory_response.py",
+
+    # ==================================================
+    # Personality
+    # ==================================================
     "core/personality/__init__.py",
-    "core/personality/personality.py",
+    "core/personality/personality_loader.py",
+    "core/personality/system_prompt.py",
 
-        # Data
-    "data/database/memory_db.py",
-    "data/database/memory.json",
+    # ==================================================
+    # Context
+    # ==================================================
+    "core/context/__init__.py",
+    "core/context/context_engine.py",
 
+    # ==================================================
+    # Automation
+    # ==================================================
+    "core/automation/__init__.py",
+    "core/automation/aliases.py",
+    "core/automation/app_finder.py",
+    "core/automation/app_launcher.py",
+    "core/automation/app_registry.py",
+    "core/automation/command_parser.py",
+
+    # ==================================================
+    # Command Interpreter
+    # ==================================================
+    "core/command_interpreter/__init__.py",
+    "core/command_interpreter/command_interpreter.py",
+
+    # ==================================================
+    # TOOLS (Sprint 5)
+    # ==================================================
+    "core/tools/__init__.py",
+    "core/tools/tool_manager.py",
+    "core/tools/tool_classifier.py",
+    "core/tools/calculator.py",
+    "core/tools/datetime_tool.py",
+    "core/tools/converter.py",
+    "core/tools/random_tool.py",
+
+    # ==================================================
+    # WEB (Sprint 5)
+    # ==================================================
+    "core/web/__init__.py",
+    "core/web/search.py",
+
+    # ==================================================
+    # WEATHER (Sprint 5)
+    # ==================================================
+    "core/weather/__init__.py",
+    "core/weather/weather.py",
+
+    # ==================================================
+    # FILES (Sprint 5)
+    # ==================================================
+    "core/files/__init__.py",
+    "core/files/file_manager.py",
+
+    # ==================================================
+    # Logger
+    # ==================================================
+    "core/logger/__init__.py",
+    "core/logger/logger.py",
+
+    # ==================================================
+    # Config Manager
+    # ==================================================
+    "core/config/__init__.py",
+    "core/config/config_manager.py",
+
+    # ==================================================
     # Shared
-    "shared/version.py",
+    # ==================================================
+    "shared/__init__.py",
     "shared/constants.py",
     "shared/helpers.py",
+    "shared/version.py",
 
-    # Config JSON
+    # ==================================================
+    # UI
+    # ==================================================
+    "ui/__init__.py",
+    "ui/main_window.py",
+    "ui/splash_screen.py",
+
+    "ui/components/__init__.py",
+    "ui/components/chat_area.py",
+    "ui/components/message_input.py",
+    "ui/components/message_bubble.py",
+    "ui/components/top_bar.py",
+    "ui/components/status_bar.py",
+
+    # ==================================================
+    # Config Files
+    # ==================================================
     "config/general.json",
     "config/ai.json",
     "config/personality.json",
-    "config/voice.json",
     "config/memory.json",
     "config/security.json",
-    "config/sync.json",
     "config/skills.json",
+    "config/sync.json",
+    "config/voice.json",
+
+    # ==================================================
+    # Tests
+    # ==================================================
+    "tests/test_ai_service.py",
+    "tests/test_app_finder.py",
+    "tests/test_app_launcher.py",
+    "tests/test_command.py",
+    "tests/test_context.py",
+    "tests/test_router.py",
+    "tests/test_memory.py",
+    "tests/test_personality.py",
+    "tests/test_tool_manager.py",
+    "tests/test_calculator.py",
+    "tests/test_datetime.py",
+    "tests/test_converter.py",
+    "tests/test_random.py",
 ]
 
 # -----------------------------
