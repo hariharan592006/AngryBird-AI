@@ -1,5 +1,6 @@
 from core.automation.command_parser import CommandParser
 from core.automation.app_launcher import AppLauncher
+from core.automation.web_launcher import WebLauncher
 
 
 class CommandInterpreter:
@@ -8,15 +9,21 @@ class CommandInterpreter:
 
         self.parser = CommandParser()
         self.launcher = AppLauncher()
+        self.web_launcher = WebLauncher()
 
     def execute(self, command: str):
 
-        command = command.lower().strip()
+        result = self.parser.parse(command)
 
-        if command.startswith("open "):
+        if result is None:
+            return "Sorry, I couldn't understand that command."
 
-            app = command.replace("open ", "", 1).strip()
+        kind, target = result
 
-            return self.launcher.launch(app)
+        if kind == "app":
+            return self.launcher.launch(target)
 
-        return "Sorry, I don't understand that command."
+        if kind == "website":
+            return self.web_launcher.launch(target)
+
+        return "Sorry, I couldn't understand that command."

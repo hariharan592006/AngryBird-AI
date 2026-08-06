@@ -2,8 +2,8 @@ import re
 
 from core.tools.calculator import Calculator
 from core.tools.datetime_tool import DateTimeTool
-from core.tools.random_tool import RandomTool
-from core.tools.converter import Converter
+from core.tools.random_generator import RandomTool
+from core.tools.unit_converter import Converter
 from core.tools.tool_classifier import ToolClassifier
 
 

@@ -1,4 +1,4 @@
-from core.tools.random_tool import RandomTool
+from core.tools.random_generator import RandomTool
 
 tool = RandomTool()
 
